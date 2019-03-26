@@ -8,10 +8,12 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import sample.domain.Member;
 import sample.member.sqlservice.SqlService;
 
+@Repository
 public class MemberDaoJdbc implements MemberDao {
 	
 	private JdbcTemplate jdbcTemplate;
@@ -35,13 +37,12 @@ public class MemberDaoJdbc implements MemberDao {
 			member.setEmail(rs.getString("email"));
 			return member;
 		}
-	}; 
-	
+	};
+
 	@Override
-	public Member get(String email) {
+	public Member get(String id) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.queryForObject(this.sqlService.getSql("memberGet"), new Object[] {email}, memberMapper);
-		
+		return null;
 	}
 
 	@Override
@@ -63,6 +64,12 @@ public class MemberDaoJdbc implements MemberDao {
 	}
 
 	@Override
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public void deleteAll() {
 		// TODO Auto-generated method stub
 		
@@ -72,6 +79,6 @@ public class MemberDaoJdbc implements MemberDao {
 	public int getCount() {
 		// TODO Auto-generated method stub
 		return 0;
-	}
+	} 
 
 }

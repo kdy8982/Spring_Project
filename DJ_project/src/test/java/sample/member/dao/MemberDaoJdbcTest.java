@@ -11,10 +11,9 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
-import sample.TestApplicationContext;
 import sample.domain.Member;
 
-@ContextConfiguration(classes=TestApplicationContext.class)
+@ContextConfiguration(locations="/WEB-INF/spring/webmvc-config.xml")
 public class MemberDaoJdbcTest {
 
 	@Autowired
