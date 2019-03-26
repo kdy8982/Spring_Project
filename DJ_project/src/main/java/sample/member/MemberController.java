@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 
 import sample.domain.Member;
 import sample.member.service.MemberService;
@@ -23,10 +24,11 @@ public class MemberController {
 	@Autowired
 	 MemberService memberService;
 	
-	@RequestMapping("/list")
-	public void list(Model model){
-		System.out.println("list is??");
-		model.addAttribute("list", memberService.list());
+	@RequestMapping("/list.dj")
+	public ModelAndView list() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("list");
+		return mav;
 	}
 	
 	@RequestMapping("/form")
